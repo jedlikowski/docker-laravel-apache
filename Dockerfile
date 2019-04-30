@@ -6,6 +6,7 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN apt update && apt install curl \
   && curl -s https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer \
+  && docker-php-ext-install mysqli \
   && a2enmod rewrite \
   && a2enmod headers \
   && service apache2 restart \
